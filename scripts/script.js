@@ -124,6 +124,8 @@ window.onload = function () {
   createNewDropdown(categories, "myCategories");
   const myCategories = document.getElementById("myCategories");
   myCategories.onchange = onCategorySelectionChanged;
+  const myActivities = document.getElementById("myActivities");
+  myActivities.onchange = onActivitySelectionChanged;
 };
 // Create new dropdown list
 function createNewDropdown(_myArrayList, _nameOfDropdown){
@@ -140,7 +142,8 @@ function onCategorySelectionChanged() {
   const index = document.getElementById("myCategories").selectedIndex;
   const selectedCategoryText = document.getElementById("myCategories")[index].text;
   document.getElementById("myActivities").innerHTML = "";
-  for (let i = 0; i < activities.length; i++) {
+  myActivities.appendChild(new Option("Select one"));
+  for(let i = 0; i < activities.length; i++){
     if(activities[i].category === selectedCategoryText){
       let theOption = new Option(activities[i].name);
       myActivities.appendChild(theOption);
@@ -149,5 +152,13 @@ function onCategorySelectionChanged() {
 }
 // Display information about activity when selected
 function onActivitySelectionChanged() {
-  
+  const index = document.getElementById("myActivities").selectedIndex;
+  const selectedActivityText = document.getElementById("myActivities")[index].text;
+  for(let i = 0; i < activities.length; i++){
+    if(activities[i].name === selectedActivityText){
+      document.getElementById("displayInfo").innerHTML = 
+      `<b>${activities[i].name}</b> (${activities[i].id}) <br> <i>${activities[i].description}</i> <br> 
+      Contact: <u>${activities[i].location}</u> <br> <strong>$${activities[i].price.toFixed(2)}</strong>`;
+    }
+  }
 }

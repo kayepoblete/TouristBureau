@@ -12,7 +12,7 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <!-- External CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!--Jquery Google CDN-->
 
@@ -28,17 +28,20 @@
         <!-- place navbar here -->
     </header>
     <main>
-        <h1>Activities</h1>
+        <div class="container">
+            <h1>Activities</h1>
 
-        <select id="myCategories">
-            <option value="" selected disabled>Select one</option>
+            <select id="myCategories">
+                <option value="" selected>Select one</option>
+            </select>
+    
+            <select id="myActivities">
+                <option value="" selected>Select one</option>
+            </select>
+    
+            <div id="displayInfo"></div>
 
-        </select>
-
-        <select id="myActivities"></select>
-
-        <div id="displayInfo"></div>
-
+        </div>
     </main>
 
     <footer>
