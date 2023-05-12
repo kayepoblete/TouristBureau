@@ -154,6 +154,14 @@ function onCategorySelectionChanged() {
 function onActivitySelectionChanged() {
   const index = document.getElementById("myActivities").selectedIndex;
   const selectedActivityText = document.getElementById("myActivities")[index].text;
+  if(selectedActivityText === "Select one"){
+    document.getElementById("displayInfo").style.display = "none";
+    document.getElementById("formPay").style.display = "none";
+  }
+  else{
+    document.getElementById("displayInfo").style.display = "block";
+    document.getElementById("formPay").style.display = "block";
+  }
   for(let i = 0; i < activities.length; i++){
     if(activities[i].name === selectedActivityText){
       document.getElementById("displayInfo").innerHTML = 
@@ -168,7 +176,7 @@ function onActivitySelectionChanged() {
     }
   }
 }
-
+// Calculate
 function calculatePurchase(){
   const numTix = document.getElementById("numTix").value;
   const index = document.getElementById("myActivities").selectedIndex;
@@ -181,7 +189,7 @@ function calculatePurchase(){
   ;
 
 }
-
+// Submit button
 formPay.addEventListener("submit", (e) => {
   e.preventDefault();
   calculatePurchase();

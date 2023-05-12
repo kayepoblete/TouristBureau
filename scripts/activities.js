@@ -1,6 +1,6 @@
 "use strict";
 
-let categories = [
+ let categories = [
   "Adventures",
   "Arts & Crafts",
   "Museums",
