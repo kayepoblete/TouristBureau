@@ -1,6 +1,6 @@
 "use strict";
 
- let categories = [
+export let categories = [
   "Adventures",
   "Arts & Crafts",
   "Museums",
@@ -8,7 +8,7 @@
   "Other",
 ];
 
-let activities = [
+export let activities = [
   {
     category: "Adventures",
     id: "A101",
