@@ -141,6 +141,7 @@ function onCategorySelectionChanged() {
   const myActivities = document.getElementById("myActivities");
   const index = document.getElementById("myCategories").selectedIndex;
   const selectedCategoryText = document.getElementById("myCategories")[index].text;
+  showHideActivitiesList();
   document.getElementById("myActivities").innerHTML = "";
   myActivities.appendChild(new Option("Select one"));
   for(let i = 0; i < activities.length; i++){
@@ -154,14 +155,7 @@ function onCategorySelectionChanged() {
 function onActivitySelectionChanged() {
   const index = document.getElementById("myActivities").selectedIndex;
   const selectedActivityText = document.getElementById("myActivities")[index].text;
-  if(selectedActivityText === "Select one"){
-    document.getElementById("displayInfo").style.display = "none";
-    document.getElementById("formPay").style.display = "none";
-  }
-  else{
-    document.getElementById("displayInfo").style.display = "block";
-    document.getElementById("formPay").style.display = "block";
-  }
+  showHideDisplayInfo();
   for(let i = 0; i < activities.length; i++){
     if(activities[i].name === selectedActivityText){
       document.getElementById("displayInfo").innerHTML = 
@@ -188,6 +182,32 @@ function calculatePurchase(){
   ${selectedActivity}. A confirmation email has been sent to ${email}.`
   ;
 
+}
+// Hide/Show activities list
+function showHideActivitiesList(){
+  const index = document.getElementById("myCategories").selectedIndex;
+  const selectedCategoryText = document.getElementById("myCategories")[index].text;
+  if(selectedCategoryText === "Select one"){
+    document.getElementById("myActivities").style.display = "none";
+    document.getElementById("displayInfo").style.display = "none";
+    document.getElementById("formPay").style.display = "none";
+  }
+  else{
+    document.getElementById("myActivities").style.display = "block";
+  }
+}
+// Hide/show information and form
+function showHideDisplayInfo(){
+  const index = document.getElementById("myActivities").selectedIndex;
+  const selectedActivityText = document.getElementById("myActivities")[index].text;
+  if(selectedActivityText === "Select one"){
+    document.getElementById("displayInfo").style.display = "none";
+    document.getElementById("formPay").style.display = "none";
+  }
+  else{
+    document.getElementById("displayInfo").style.display = "block";
+    document.getElementById("formPay").style.display = "block";
+  }
 }
 // Submit button
 formPay.addEventListener("submit", (e) => {
