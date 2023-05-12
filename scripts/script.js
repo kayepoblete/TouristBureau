@@ -160,12 +160,29 @@ function onActivitySelectionChanged() {
       `<b>${activities[i].name}</b> (${activities[i].id}) <br> <i>${activities[i].description}</i> <br> 
       Contact: <u>${activities[i].location}</u> <br> <strong>$${activities[i].price.toFixed(2)}</strong>`;
       if(activities[i].price > 0){
-        document.getElementById("payForm").style.display = "block";
+        document.getElementById("formPay").style.display = "block";
       }
       else{
-        document.getElementById("payForm").style.display = "none";
+        document.getElementById("formPay").style.display = "none";
       }
     }
   }
 }
 
+function calculatePurchase(){
+  const numTix = document.getElementById("numTix").value;
+  const index = document.getElementById("myActivities").selectedIndex;
+  const selectedActivity = document.getElementById("myActivities")[index].text;
+  const email = document.getElementById("payEmail").value;
+  const price = activities[index-1].price;
+  const cost = numTix * price;
+  document.getElementById("messagePay").innerHTML = `Your credit card has been charged $${cost.toFixed(2)} for ${numTix} to
+  ${selectedActivity}. A confirmation email has been sent to ${email}.`
+  ;
+
+}
+
+formPay.addEventListener("submit", (e) => {
+  e.preventDefault();
+  calculatePurchase();
+});
