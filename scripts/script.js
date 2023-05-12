@@ -1,4 +1,13 @@
 "use strict";
+
+let categories = [
+  "Adventures",
+  "Arts & Crafts",
+  "Museums",
+  "Wine Tastings",
+  "Other",
+];
+
 let activities = [
     {
       category: "Adventures",
@@ -108,47 +117,37 @@ let activities = [
       location: "Call (555) 555-5555",
       price: 0.0,
     },
-  ];
+];
 
 window.onload = function () {
-    // load the dropdown list
-    initCategoryDropdown();
-    // other stuff
-    const myCategories = document.getElementById("myCategories");
-    myCategories.onchange = onCategorySelectionChanged;
+  // On page load, have category dropdown
+  createNewDropdown(categories, "myCategories");
+  const myCategories = document.getElementById("myCategories");
+  myCategories.onchange = onCategorySelectionChanged;
 };
-
-function initCategoryDropdown() {
-    // load the dropdown list
-    let categories = [
-      "Adventures",
-      "Arts & Crafts",
-      "Museums",
-      "Wine Tastings",
-      "Other",
-    ];
-    const categoryList = document.getElementById("myCategories");
-  
-    let length = categories.length;
-    for (let i = 0; i < length; i++) {
-      // create the option element and set the text and
-      // value at the same time
-      let theOption = new Option(categories[i]);
-      // append the option as a child of (inside) the
-      // select element
-      categoryList.appendChild(theOption);
-    }
+// Create new dropdown list
+function createNewDropdown(_myArrayList, _nameOfDropdown){
+  const newDropdown = document.getElementById(_nameOfDropdown);
+  let length = _myArrayList.length;
+  for(let i = 0; i < length; i++){
+    let theOption = new Option(_myArrayList[i]);
+    newDropdown.appendChild(theOption);
+  }
 }
-
+// Display activities based on category selected
 function onCategorySelectionChanged() {
-    const categoryList = document.getElementById("myCategories");
-    const selectedCategory = categoryList.selectedIndex;
-    alert(selectedCategory);
-    // let matching = [];
-    // for (let i = 0; i < activities.length; i++) {
-    //     if(selectedCategory == activities[i].category){
-    //         matching.push(activities[i]);
-    //     }
-    // }
-    // alert(matching);
+  const myActivities = document.getElementById("myActivities");
+  const index = document.getElementById("myCategories").selectedIndex;
+  const selectedCategoryText = document.getElementById("myCategories")[index].text;
+  document.getElementById("myActivities").innerHTML = "";
+  for (let i = 0; i < activities.length; i++) {
+    if(activities[i].category === selectedCategoryText){
+      let theOption = new Option(activities[i].name);
+      myActivities.appendChild(theOption);
+    }
+  }
+}
+// Display information about activity when selected
+function onActivitySelectionChanged() {
+  
 }
