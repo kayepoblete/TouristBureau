@@ -159,6 +159,13 @@ function onActivitySelectionChanged() {
       document.getElementById("displayInfo").innerHTML = 
       `<b>${activities[i].name}</b> (${activities[i].id}) <br> <i>${activities[i].description}</i> <br> 
       Contact: <u>${activities[i].location}</u> <br> <strong>$${activities[i].price.toFixed(2)}</strong>`;
+      if(activities[i].price > 0){
+        document.getElementById("payForm").style.display = "block";
+      }
+      else{
+        document.getElementById("payForm").style.display = "none";
+      }
     }
   }
 }
+

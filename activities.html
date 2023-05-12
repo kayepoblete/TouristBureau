@@ -40,6 +40,18 @@
             </select>
     
             <div id="displayInfo"></div>
+            <!-- Form to buy ticket, appears when price of activity > $0 -->
+            <form action="" id="payForm">
+                <label for="payNumTix">Number of tickets:</label>
+                <input type="number" id="payNumTix">
+                <label for="payCard">Credit card:</label>
+                <input type="text" id="payCard">
+                <label for="payEmail">Email address:</label>
+                <input type="email" id="payEmail">
+                <button type="submit" id="payBtn">Purchase</button>
+                <button type="reset" id="payReset">Reset</button>
+                <div id="payMessage"></div>
+            </form>
 
         </div>
     </main>
