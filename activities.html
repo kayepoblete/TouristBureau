@@ -25,37 +25,71 @@
 
 <body>
     <header>
-        <!-- place navbar here -->
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <div class="container">
+              <a class="navbar-brand" href="index.html">Tourist Bureau</a>
+              <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavId">
+                  <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link" href="index.html" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link active" href="activities.html">Activities</a>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
     </header>
     <main>
         <div class="container">
-            <h1>Activities</h1>
-
-            <select id="myCategories">
-                <option value="" selected>Select one</option>
-            </select>
+            <h1 class="mt-3">Activities</h1>
+            <hr>
+            <div class="container center-horizontal">
+                <select class="form-select mb-3" id="myCategories">
+                    <option value="" selected>Select one</option>
+                </select>
+        
+                <select class="form-select mb-3" id="myActivities">
+                    <option value="" selected>Select one</option>
+                </select>
+            </div>
     
-            <select id="myActivities">
-                <option value="" selected>Select one</option>
-            </select>
-    
-            <div id="displayInfo"></div>
+            <div class="container center-horizontal mb-3" id="displayInfo"></div>
             <!-- Form to buy ticket, appears when price of activity > $0 -->
-            <form action="" id="formPay">
-                <label for="numTix">Number of tickets:</label>
-                <input type="number" id="numTix">
-
-                <label for="payCard">Credit card:</label>
-                <input type="text" id="payCard">
-
-                <label for="payEmail">Email address:</label>
-                <input type="email" id="payEmail">
-
-                <button type="submit" id="btnPay">Purchase</button>
-                <button type="reset" id="btnReset">Reset</button>
-
-                <div id="messagePay"></div>
-            </form>
+            <div class="container center-horizontal mb-3">
+                <form action="" id="formPay">
+                    <div class="mb-3">
+                        <label class="form-label" for="numTix">Number of tickets:<span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="numTix" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="payCard">Credit card:<span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="payCard">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="payEmail">Email address:<span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="payEmail" required>
+                        </div>
+                    </div>
+    
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary" id="btnPay">Purchase</button>
+                        <button type="reset" class="btn btn-secondary" id="btnReset">Reset</button>
+                    </div>
+    
+                    <div id="messagePay"></div>
+                </form>
+            </div>
 
         </div>
     </main>
@@ -71,7 +105,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
-    <script src="/scripts/script.js" type="module"></script>
+    <script type="module" src="/scripts/script.js"></script>
 </body>
 
 </html>
